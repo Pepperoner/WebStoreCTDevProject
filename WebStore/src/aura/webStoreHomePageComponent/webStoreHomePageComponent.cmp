@@ -1,0 +1,20 @@
+<aura:component implements="forceCommunity:themeLayout" access="global" description="Web Store Theme Layout">
+
+    <c:Header/>
+
+    <div class="c-container">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_2-of-3">
+                <div class="slds-tile">
+                    <c:MainContainer/>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-3">
+                <div class="slds-container--medium slds-p-around--xxx-small">
+                    <c:OrderView/>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

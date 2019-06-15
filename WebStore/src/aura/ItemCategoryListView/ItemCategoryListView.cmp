@@ -1,0 +1,20 @@
+<!--
+ - Created by venzor on 3/23/2019.
+ -->
+
+<aura:component controller="ItemCategoryController"
+                description="ItemCategoryListView">
+
+    <aura:attribute name="categories" type="ItemCategory__c[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:layout multipleRows="true">
+        <aura:iteration items="{!v.categories}" var="category">
+            <lightning:layoutItem size="6" padding="around-small">
+                <c:ItemCategoryView category="{!category}"/>
+            </lightning:layoutItem>
+        </aura:iteration>
+    </lightning:layout>
+
+</aura:component>

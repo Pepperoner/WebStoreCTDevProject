@@ -1,0 +1,66 @@
+<!--
+ - Created by venzor on 3/24/2019.
+ -->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes"
+                controller="OrderController" description="OrderView">
+    <aura:attribute name="orderList" type="OrderItem__c[]"/>
+    <aura:attribute name="totalPrice" type="Decimal" default="0"/>
+    <aura:attribute name="clearList" type="Boolean" default="true"/>
+    <aura:attribute name="confirm" type="Boolean" default="false"/>
+
+
+    <aura:handler name="createOrder" event="c:OrderConfEvent" action="{!c.createOrder}"/>
+    <aura:handler event="c:AddToBasketEvent" action="{!c.addItem}"/>
+    <aura:handler name="changeQuantity" event="c:ChangeOrderItemQuantityEvent" action="{!c.changeQuantity}"/>
+    <aura:registerEvent name="ReloadComponentEvent" type="c:ReloadComponentEvent"/>
+
+
+    <lightning:layout>
+        <lightning:layoutItem size="12" padding="around-small">
+            <lightning:card title="Cart">
+                <aura:if isTrue="{!v.clearList}">
+                    <lightning:layout>
+                        <lightning:layoutItem size="12">
+                            <div class=" slds-text-align_center slds-text-heading_medium">
+                                <p>Cart is empty</p>
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <aura:set attribute="else">
+                        <lightning:layout multipleRows="true">
+                            <lightning:layoutItem size="12">
+                                <aura:iteration items="{!v.orderList}" var="ordItem">
+                                    <c:OrderItemView orderItem="{!ordItem}"/>
+                                </aura:iteration>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="6">
+                                <div class=" slds-text-align_center slds-text-heading_medium">
+                                    <p>Total price</p>
+                                </div>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="6">
+                                <div class=" slds-text-align_center slds-text-heading_medium">
+                                    <p>
+                                        <lightning:formattedNumber value="{!v.totalPrice}" style="currency"
+                                                                   currencyDisplayAs="symbol"/>
+                                    </p>
+                                </div>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="3" alignmentBump="left">
+                                <lightning:button variant="success" label="Confirm" onclick="{!c.confirmOrder}"/>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="3">
+                                <lightning:button variant="destructive" label="Cancel" onclick="{!c.cancelOrder}"/>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </aura:set>
+                </aura:if>
+                <aura:if isTrue="{!v.confirm}">
+                    <c:ClientInfo/>
+                </aura:if>
+            </lightning:card>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+</aura:component>

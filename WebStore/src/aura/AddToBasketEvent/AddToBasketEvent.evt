@@ -1,0 +1,8 @@
+<!--
+ - Created by venzor on 3/23/2019.
+ -->
+
+<aura:event type="APPLICATION" description="AddToBasketEvent">
+    <aura:attribute name="item" type="Item__c"/>
+    <aura:attribute name="count" type="Integer"/>
+</aura:event>

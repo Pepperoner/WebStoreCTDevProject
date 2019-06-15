@@ -1,0 +1,20 @@
+<!--
+ - Created by venzor on 3/24/2019.
+ -->
+
+<aura:component description="ClientInfo">
+    <aura:attribute name="phone" type="String"/>
+    <aura:attribute name="address" type="String"/>
+
+    <aura:registerEvent name="createOrder" type="c:OrderConfEvent"/>
+
+
+    <lightning:input type="tel"
+                     label="Phone"
+                     name="phone"
+                     value="{!v.phone}"
+                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+                     placeholder="XXX-XXX-XX-XX"/>
+    <lightning:textarea label="Address" value="{!v.address}"/>
+    <lightning:button variant="success" label="Create" onclick="{!c.createOrder}"/>
+</aura:component>

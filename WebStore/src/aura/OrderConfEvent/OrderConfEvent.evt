@@ -1,0 +1,7 @@
+<!--
+ - Created by venzor on 3/24/2019.
+ -->
+
+<aura:event type="COMPONENT" description="OrderConfEvent">
+    <aura:attribute name="clientInfo" type="String"/>
+</aura:event>

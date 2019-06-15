@@ -1,0 +1,7 @@
+<!--
+ - Created by venzor on 3/23/2019.
+ -->
+
+<aura:event type="APPLICATION" description="ChangeComponentEvent">
+    <aura:attribute name="catId" type="Id" default="0"/>
+</aura:event>

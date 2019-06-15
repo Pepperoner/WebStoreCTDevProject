@@ -1,0 +1,26 @@
+<!--
+ - Created by venzor on 3/23/2019.
+ -->
+
+<aura:component description="ItemCategoryView">
+    <aura:attribute name="category" type="ItemCategory__c"/>
+
+    <aura:registerEvent name="redirectToItems" type="c:ChangeComponentEvent"/>
+    <lightning:card>
+        <lightning:layout>
+            <lightning:layoutItem size="12">
+                <div class=" slds-text-align_center slds-text-heading_large">
+                    <p>{!v.category.Name}</p>
+                </div>
+
+                <div class="slds-align_absolute-center">
+                    <img src="{!'/s/sfsites/c'+v.category.Imeg_URL__c}" onclick="{!c.goToItems}"/>
+                </div>
+            
+                <div class="slds-align_absolute-center">
+                    ({!v.category.Quantity__c})
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

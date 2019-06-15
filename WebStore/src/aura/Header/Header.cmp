@@ -1,0 +1,47 @@
+<!--
+ - Created by Diz-19 on 25.03.2019.
+ -->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes" description="Header">
+    <aura:registerEvent name="toCategories" type="c:ChangeComponentEvent"/>
+
+    <div style="position:relative;height:50px">
+        <div class="slds-builder-header_container">
+            <header class="slds-builder-header">
+                <div class="slds-builder-header__item">
+                    <div class="slds-builder-header__item-label slds-media slds-media_center">
+                        <div class="slds-media__figure">
+            				<span class="slds-icon_container slds-icon-utility-builder slds-current-color">
+            				</span>
+                        </div>
+                        <div class="slds-media__body">Online Store</div>
+                    </div>
+                </div>
+                <div class="slds-builder-header__item">
+                    <h1 class="slds-builder-header__item-label">Contacts</h1>
+                </div>
+
+                <div class="slds-builder-header__item slds-builder-header__utilities">
+                    <div class="slds-builder-header__utilities-item">
+                        <a href="javascript:void(0);" class="slds-builder-header__item-action slds-media slds-media_center">
+                            <div class="slds-media__figure">
+              					<span class="slds-icon_container slds-icon-utility-back slds-current-color">
+              					</span>
+                            </div>
+                            <div class="slds-media__body" onclick="{!c.goBack}">Back</div>
+                        </a>
+                    </div>
+                    <div class="slds-builder-header__utilities-item">
+                        <a href="javascript:void(0);" class="slds-builder-header__item-action slds-media slds-media_center">
+                            <div class="slds-media__figure">
+              				<span class="slds-icon_container slds-icon-utility-help slds-current-color">
+              				</span>
+                            </div>
+                            <div class="slds-media__body">Help</div>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+</aura:component>

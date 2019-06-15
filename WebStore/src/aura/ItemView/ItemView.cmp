@@ -1,0 +1,49 @@
+<!--
+ - Created by venzor on 3/22/2019.
+ -->
+
+<aura:component description="ItemView">
+    <aura:attribute name="itemToView" type="Item__c"/>
+    <aura:attribute name="itemCount" type="Integer" default="1"/>
+    <aura:registerEvent name="AddToBasketEvent" type="c:AddToBasketEvent"/>
+
+    <div class="c-container">
+        <lightning:card title="{!v.item.Name}">
+            <lightning:layout multipleRows="true">
+
+
+                <lightning:layoutItem size="4" padding="around-small">
+                    <img src="{!'/s/sfsites/c'+v.itemToView.Picture_URL__c}"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="8" padding="around-small">
+                    <lightning:layout multipleRows="true">
+
+                        <lightning:layoutItem size="12" padding="around-small">
+                            <p>Price:</p>
+                            <p><lightning:formattedNumber value="{!v.itemToView.Price__c}" style="currency" currencyDisplayAs="symbol"/></p>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="4" padding="around-small">
+                            <lightning:input type="number"
+                                             name="count"
+                                             label="Количество:"
+                                             step="1"
+                                             min="1"
+                                             max="{!v.itemToView.Quantity__c}"
+                                             value="{!v.itemCount}"/>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="12" padding="around-small" >
+                    <p>Description:</p>
+                    <p>{!v.itemToView.Description__c}</p>
+                </lightning:layoutItem>
+                <lightning:layoutItem size="4" alignmentBump="left">
+                    <lightning:button variant="brand" label="Add to cart"  onclick="{!c.plaseItem}"/>
+                </lightning:layoutItem>
+
+            </lightning:layout>
+        </lightning:card>
+    </div>
+
+
+</aura:component>

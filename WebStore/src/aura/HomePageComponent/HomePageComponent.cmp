@@ -1,0 +1,30 @@
+<aura:component>
+	<div class="c-container">
+		<lightning:layout multipleRows="true">
+			<lightning:layoutItem padding="around-small" size="12">
+				<div class="page-section page-header">
+					<h2>Header</h2>
+				</div>
+			</lightning:layoutItem>
+			<lightning:layoutItem padding="around-small" size="12">
+				<lightning:layout>
+					<lightning:layoutItem padding="around-small" size="8">
+						<div class="page-section page-main">
+							<h2>Main</h2>
+						</div>
+					</lightning:layoutItem>
+					<lightning:layoutItem padding="around-small" size="4">
+						<div class="page-section page-right">
+							<h2>Order</h2>
+						</div>
+					</lightning:layoutItem>
+				</lightning:layout>
+			</lightning:layoutItem>
+			<lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+				<div class="page-footer page-section">
+					<h2>Footer</h2>
+				</div>
+			</lightning:layoutItem>
+		</lightning:layout>
+	</div>
+</aura:component>
