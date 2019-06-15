@@ -1,0 +1,14 @@
+# Illuminated Cloud (IntelliJ IDEA)
+IlluminatedCloud/
+out
+.idea
+*.iml
+
+# GitIgnore for Salesforce Projects
+# Project Settings and MetaData
+.project
+.xml
+.settings/
+.metadata
+build.properties
+config
